@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block js_script %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.0/chartjs-plugin-zoom.min.js"></script>
+
+{% endblock %}
+
+{%  block main_container %}
+    <div class="chart-container" style="position: relative; height:60vh; width:100%; margin: 0 auto">
+        <canvas id="myChart" style="height:100%; width: 100%"></canvas>
+    </div>
+    <script>
+      const ctx = document.getElementById('myChart').getContext("2d");
+      var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: {{ js_dates | safe}},
+            datasets : [
+                {
+                    label : "{{ data_type }}",
+                    data : {{ data }},
+                    fill : false,
+                    borderColor : "rgb(75, 192, 192)",
+                    lineTension : 0.1,
+                    axis: 'yAxis'
+                }
+            ]
+        },
+        options: {
+          scales: {
+            x: {
+              beginAtZero: true
+            }
+          }
+        },
+              plugins: {
+      zoom: {
+        limits: {
+          y: {min: 0, max: 100},
+          y2: {min: -5, max: 5}
+        },
+      }
+    }
+      });
+    </script>
+{% endblock %}
