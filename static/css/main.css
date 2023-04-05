@@ -1,3 +1,111 @@
-body {
-    background : lightblue;
+[class^="col"] {
+    padding: 0;
 }
+body * {
+    color: #ffffff;
+}
+body {
+    background: #232222;
+    font-family: 'Kodchasan', sans-serif;
+}
+
+body header .navigation_bar {
+    background-color: #232222;
+}
+
+body .banner_section{
+    height: 541px;
+}
+
+#banner_carousel {
+    height: 100%;
+}
+
+.banner_section .project_title {
+    position: absolute;
+    top: 110px;
+    left: calc(0.5rem  + 15px) ;
+    z-index: 4;
+}
+
+#banner_carousel .carousel-inner{
+    height: 100%;
+}
+
+body .banner_section .project_title {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 32px;
+    color : #ffffff;
+    padding-left : 15px;
+    padding-right: 15px;
+}
+
+body .about_project_block{
+    padding: 0.5rem 1rem;
+}
+
+body .about_project_block .corpus_section img{
+    height: 350px;
+    width: 250px;
+}
+
+.about_project_block h2, .measurement_items h2{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.about_project_block > div, .measurement_items > div {
+    margin-top: 50px;
+}
+
+footer .container-fluid {
+    padding: 0.5rem 1rem;
+}
+
+footer .navbar-brand {
+    padding-left: 15px;
+}
+
+.navbar-brand img{
+    width: 200px;
+}
+
+.measurement_items img {
+    height: 75px;
+    transition: transform 0.4s;
+}
+
+.measurement_items img:hover {
+    transform: scale(1.3);
+}
+.measurement_items .data_item {
+    text-align: center;
+}
+
+.chart-container {
+    padding: 0 20px 0 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .measurement_items .data_item {
+        text-align: center;
+        min-width: 33.3%
+    }
+    .measurement_items .data_item:nth-last-child(-n+3) {
+        margin-top: 40px;
+        margin-bottom : 40px
+    }
+
+    body .banner_section {
+        height: 153px;
+    }
+    .corpus_section{
+        align-items: center;
+        justify-content: center !important;
+    }
+    .chart-container {
+        padding: 0 20px 0 20px;
+    }
+}
+

@@ -2,8 +2,6 @@
 
 {% block js_script %}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.0/chartjs-plugin-zoom.min.js"></script>
-
 {% endblock %}
 
 {%  block main_container %}
@@ -11,6 +9,9 @@
         <canvas id="myChart" style="height:100%; width: 100%"></canvas>
     </div>
     <script>
+    var measure_type = '{{ data_type }}'
+      var unit = measure_type == 'humidity' ? '%' : measure_type == 'pressure' ? 'hPa' : measure_type == 'light' ? 'Lux' : measure_type == "temperature" ? '°C' : measure_type == 'CO2' ? 'parts per million (ppm)' : measure_type == 'jolt' ? '' : null;
+
       const ctx = document.getElementById('myChart').getContext("2d");
       var lineChart = new Chart(ctx, {
         type: 'line',
@@ -29,19 +30,21 @@
         },
         options: {
           scales: {
-            x: {
-              beginAtZero: true
+            y: {
+                title : {
+                    display : true,
+                    text : unit
+                }
+            },
+            x : {
+                title : {
+                    display: true,
+                    text : "Time"
+                },
+                beginAtZero : true
             }
           }
-        },
-              plugins: {
-      zoom: {
-        limits: {
-          y: {min: 0, max: 100},
-          y2: {min: -5, max: 5}
-        },
-      }
-    }
+        }
       });
     </script>
 {% endblock %}

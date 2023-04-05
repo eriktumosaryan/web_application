@@ -1,10 +1,56 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block title %}
-Main page
-{% endblock%}
+    Tumo Labs | Home
+{% endblock %}
 
-{% block body%}
-<h1>Main page</h1>
-<a href="/about_us">About us </a>
+{% block main_container %}
+    <div class="container">
+        <div class="about_project_block">
+            <h2>About Project</h2>
+            <div class="d-flex flex-sm-row flex-column">
+                <div class="col-sm-8 col-12 d-flex">
+Climate Net is a project where you can see the change in the weather remotely using your smartphone, the main conditions in the weather monitor are the temperature, humidity, and the air quality. The weather can change at any time as it is uncontrollable but it can be monitored continuously and measures can be taken depending on  weather conditions. In this project, you’ll be able to monitor the conditions of the weather and access the data on a global publicly accessible dashboard.
+				</div>
+                <div class="col-sm-4 col-12 d-flex justify-content-end corpus_section">
+                    <img src="/static/images/corpus.png" alt="corpus"/>
+                </div>
+            </div>
+        </div>
+        <div class="measurement_items ">
+            <h2>Project Data</h2>
+            <div class="d-flex flex-wrap">
+                <div class="col-2 data_item ">
+                    <a class="bg-image hover-zoom" href="/data/temperature">
+                        <img src="/static/images/icons/thermometer.png" alt="temperature"/>
+                    </a>
+                </div>
+                <div class="col-2 data_item">
+                    <a href="/data/humidity">
+                        <img src="/static/images/icons/humidity.png" alt="humidity"/>
+                    </a>
+                </div>
+                <div class="col-2 data_item">
+                    <a href="/data/pressure">
+                        <img src="/static/images/icons/barometer.png" alt="barometric"/>
+                    </a>
+                </div>
+                <div class="col-2 data_item">
+                    <a href="/data/light">
+                        <img src="/static/images/icons/smart-light.png" alt="light"/>
+                    </a>
+                </div>
+                <div class="col-2 data_item">
+                    <a href="/data/CO2">
+                        <img src="/static/images/icons/cloud.png" alt="CO2"/>
+                    </a>
+                </div>
+                <div class="col-2 data_item">
+                    <a href="/data/jolt">
+                        <img src="/static/images/icons/earthquake.png" alt="earth"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock%}
